@@ -27,5 +27,26 @@ class Hotel
     {
         $this->_rooms[] = $room;
     }
-    
+ 
+    /**
+     * Get hotel 'topRooms' for today
+     * @return array
+     */
+    public function getTopRoomsForToday()
+    {
+        $result = array();
+        
+        $today = new Day();
+        $todayTopRooms = $today->getTopRooms();
+         
+        foreach ($todayTopRooms as $room) {
+            foreach ($this->_rooms as $myRoom) {
+                if ($room == $myRoom->getName) {
+                    $result[] = $room;
+                }
+            }
+        }
+         
+        return $result;
+    }
 }

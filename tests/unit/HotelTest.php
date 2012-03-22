@@ -29,7 +29,7 @@ class HotelTest extends PHPUnit_Framework_TestCase
      */
     public function testAddRoomsToHotel()
     {
-        $room = new Room();
+        $room = new Room('myRoom', 10.50);
         $this->_hotel->addRoom($room);
     }
     
