@@ -28,7 +28,6 @@ class RoomTest extends PHPUnit_Framework_TestCase
     /**
      * Check if constructor works fine for invalid data
      * @covers Room:__construct 
-     * @expectedException InvalidArgumentException
      */
     public function testConstructorForInvalidData()
     {
@@ -53,14 +52,12 @@ class RoomTest extends PHPUnit_Framework_TestCase
                 $this->fail(
                     'Created new room with invalid data: '.
                     var_export($data, true) . 
-                    ' and no exception throwed'
+                    ' and no exception thrown'
                 );
             }
         }
     }
-    
-    
-    
+
     
     
 }

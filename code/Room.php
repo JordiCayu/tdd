@@ -28,6 +28,9 @@ class Room
      */
     public function setName($name)
     {
+        if (!is_string($name)) {
+            throw new Exception('Received parameter is not a string');
+        }
         $this->_name = $name;
     }
     
@@ -38,6 +41,9 @@ class Room
      */
     public function setPrice($price)
     {
+        if (!is_numeric($price)) {
+            throw new Exception('Received parameter is not a float');
+        }
         $this->_price = $price;
     }
     
