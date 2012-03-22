@@ -59,5 +59,4 @@ class RoomTest extends PHPUnit_Framework_TestCase
     }
 
     
-    
 }

@@ -59,6 +59,15 @@ class HotelTest extends PHPUnit_Framework_TestCase
     }
     
     
+    /**
+     * @covers 
+     */
+    public function testTopRoomsForToday()
+    {
+        $this->_hotel->getTopRoomsForToday();
+    }
+    
+    
     
     /**
      * Get all filetypes for testing
