@@ -8,7 +8,28 @@
 class Hotel 
 {
     protected $_rooms = array();
+    protected $_day;
  
+    
+    /**
+     * Now constructor accepts dependency injection
+     * @param type $day 
+     */
+    public function __construct($day = null)
+    {
+        $this->setDay(
+            ($day != null) ? $day : new Day()
+        );
+    }
+    
+    /**
+     * Set the 
+     */
+    public function setDay($day)
+    {
+        $this->_day = new Day();
+    }
+    
     /**
      * Get all rooms associated to hotel
      * @return Room
@@ -17,7 +38,6 @@ class Hotel
     {
         return $this->_rooms;
     }
-    
     
     /**
      * Add a room to current hotel
@@ -36,8 +56,7 @@ class Hotel
     {
         $result = array();
         
-        $today = new Day();
-        $todayTopRooms = $today->getTopRooms();
+        $todayTopRooms = $this->_day->getTopRooms();
          
         foreach ($todayTopRooms as $room) {
             foreach ($this->_rooms as $myRoom) {

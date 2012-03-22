@@ -60,13 +60,18 @@ class HotelTest extends PHPUnit_Framework_TestCase
     
     
     /**
-     * @covers 
+     * @covers getTopRoomsForToday
      */
     public function testTopRoomsForToday()
     {
         $this->assertTrue(
             is_array($this->_hotel->getTopRoomsForToday())
         );
+    }
+    
+    public function testTopRoomsForTodayIsolatingObject()
+    {
+        $this->_hotel->getTopRoomsForToday();
     }
     
     
