@@ -58,5 +58,14 @@ class RoomTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    public function testGetName()
+    {
+        $room = new Room('test', 10);
+        $this->assertEquals(
+            'test',
+            $room->getName()
+        );
+        
+    }
     
 }
