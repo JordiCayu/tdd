@@ -5,7 +5,7 @@
  *
  * @author Adrià Cidre <adria.cidre@gmail.com>
  */
-class RoomTest 
+class RoomTest extends PHPUnit_Framework_TestCase
 {
 
     /**
