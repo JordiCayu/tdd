@@ -15,12 +15,12 @@ class HotelTest extends PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers FamilyAdmin::configureListFields
+     * @covers Hotel::getRooms
      */
-    public function testGetAll()
+    public function testGetRoomsCorrectType()
     {
-        $this->_hotel->getAll();
-        $this->assertTrue(true);
+        $hotelRooms = $this->_hotel->getRooms();
+        $this->assertTrue(is_array($hotelRooms));
     }
     
     

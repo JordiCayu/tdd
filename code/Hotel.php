@@ -7,7 +7,11 @@
  */
 class Hotel 
 {
-
+    protected $_rooms;
     
+    public function getRooms()
+    {
+        return $this->_rooms;
+    }
     
 }
