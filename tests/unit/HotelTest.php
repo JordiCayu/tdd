@@ -24,4 +24,13 @@ class HotelTest extends PHPUnit_Framework_TestCase
     }
     
     
+    /**
+     * @covers Hotel::addRoom
+     */
+    public function testAddRoomsToHotel()
+    {
+        $room = new Room();
+        $this->_hotel->addRoom($room);
+    }
+    
 }
