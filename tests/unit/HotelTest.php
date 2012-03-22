@@ -33,4 +33,5 @@ class HotelTest extends PHPUnit_Framework_TestCase
         $this->_hotel->addRoom($room);
     }
     
+    
 }
