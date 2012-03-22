@@ -17,9 +17,11 @@ class Hotel
      */
     public function __construct($day = null)
     {
-        $this->setDay(
-            ($day != null) ? $day : new Day()
-        );
+        if ($day == null) {
+            $this->setDay(new Day());
+        } else {
+            $this->setDay($day);
+        }
     }
     
     /**
@@ -27,7 +29,7 @@ class Hotel
      */
     public function setDay($day)
     {
-        $this->_day = new Day();
+        $this->_day = $day;
     }
     
     /**
@@ -57,11 +59,11 @@ class Hotel
         $result = array();
         
         $todayTopRooms = $this->_day->getTopRooms();
-         
+        
         foreach ($todayTopRooms as $room) {
             foreach ($this->_rooms as $myRoom) {
-                if ($room == $myRoom->getName) {
-                    $result[] = $room;
+                if ($room == $myRoom->getName()) {
+                    $result[] = $myRoom;
                 }
             }
         }

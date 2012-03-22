@@ -22,6 +22,11 @@ class Room
         $this->setPrice($price);
     }
     
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    
     /**
      * Set the Room's name
      * @param string $name 
@@ -34,7 +39,6 @@ class Room
         $this->_name = $name;
     }
     
-    
     /**
      * Set the Room's price 
      * @param float $price 
@@ -45,6 +49,11 @@ class Room
             throw new Exception('Received parameter is not a float');
         }
         $this->_price = $price;
+    }
+    
+    public function getName()
+    {
+        return $this->_name;
     }
     
     

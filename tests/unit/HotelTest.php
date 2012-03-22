@@ -60,7 +60,7 @@ class HotelTest extends PHPUnit_Framework_TestCase
     
     
     /**
-     * @covers getTopRoomsForToday
+     * @covers Hotel:getTopRoomsForToday
      */
     public function testTopRoomsForToday()
     {
@@ -69,9 +69,34 @@ class HotelTest extends PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * @group supu
+     * @covers Hotel:getTopRoomsForToday
+     */
     public function testTopRoomsForTodayIsolatingObject()
     {
-        $this->_hotel->getTopRoomsForToday();
+        // Create a Stub
+        $stub = $this->getMock('Day');
+        
+        // Set up the expectation for the getTopRooms() method
+        // to be called only once 
+        $stub->expects($this->any())
+            ->method('getTopRooms')
+            ->will($this->returnValue(array('testRoom1', 'testRoom2')));
+            
+        $hotel = new Hotel($stub);
+        
+        $hotel->addRoom(new Room('testRoom1', 1));
+        
+        $rooms = $hotel->getTopRoomsForToday();
+        
+        $this->assertEquals(1, count($rooms));
+        
+        $this->assertEquals(
+            $rooms[0],
+            'testRoom1'
+        );
+        
     }
     
     
