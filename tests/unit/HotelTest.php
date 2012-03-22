@@ -64,7 +64,9 @@ class HotelTest extends PHPUnit_Framework_TestCase
      */
     public function testTopRoomsForToday()
     {
-        $this->_hotel->getTopRoomsForToday();
+        $this->assertTrue(
+            is_array($this->_hotel->getTopRoomsForToday())
+        );
     }
     
     
