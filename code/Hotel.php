@@ -7,7 +7,7 @@
  */
 class Hotel 
 {
-    protected $_rooms;
+    protected $_rooms = array();
     
     public function getRooms()
     {
