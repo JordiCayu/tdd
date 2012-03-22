@@ -61,7 +61,7 @@ class Hotel
         $todayTopRooms = $this->_day->getTopRooms();
         
         foreach ($todayTopRooms as $room) {
-            foreach ($this->_rooms as $myRoom) {
+            foreach ($this->getRooms() as $myRoom) {
                 if ($room == $myRoom->getName()) {
                     $result[] = $myRoom;
                 }

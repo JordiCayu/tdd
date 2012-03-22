@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Phake.php';
+
 /**
  * Description of HotelTest
  *
@@ -98,6 +100,27 @@ class HotelTest extends PHPUnit_Framework_TestCase
         );
         
     }
+
+
+    /**
+     * @group phake
+     */
+    public function testTopRoomsForTodayIsolatingObjectPhake()
+    {
+        $mock = Phake::mock('Day');
+        Phake::when($mock)->getTopRooms()->thenReturn(array('testRoom1', 'testRoom2'));
+
+        $hotel = new Hotel($mock);
+        $hotel->addRoom(new Room('testRoom1', 1));
+        $rooms = $hotel->getTopRoomsForToday();
+
+        $this->assertEquals(1, count($rooms));
+        $this->assertEquals(
+            $rooms[0],
+            'testRoom1'
+        );
+    }
+
     
     
     

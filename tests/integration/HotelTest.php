@@ -31,7 +31,7 @@ class Integration_HotelTest extends PHPUnit_Framework_TestCase
             $hotel->getRooms()
         );
     }
-    
-    
+
+
     
 }
