@@ -29,6 +29,7 @@ class Hotel
      */
     public function setDay($day)
     {
+    	echo "enter to setDay";
         $this->_day = $day;
     }
     
